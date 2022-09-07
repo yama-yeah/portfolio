@@ -1,9 +1,11 @@
 import * as React from "react"
-import type { HeadFC } from "gatsby"
+import { HeadFC, Link } from "gatsby"
 import { P5Canvas } from "../components/p5_component"
 import { testSketch } from "../sketches/test_sketch"
 import { css, Global } from "@emotion/react"
 import styled from "@emotion/styled"
+import { StaticImage } from "gatsby-plugin-image"
+
 
 const Body = styled.body({
   margin: 0,
@@ -28,11 +30,14 @@ const IndexPage = () => (
     <OverFlowWrapper>
       <P5Canvas sketch={testSketch} />
       <TitleStacker>
-        <WhiteText>Antman Portfolio</WhiteText><h2 style={{display:'inline'}}> github</h2>
+        <WhiteText>Antman Portfolio / </WhiteText>
+        <h2 style={{ display: 'inline', color: 'white' }}>
+          Likes: Flutter MachineLearning Linux / <Link to="https://zenn.dev/antman" target="_blank" style={{ color: 'white' }}>Zenn</Link> / <Link target="_blank" to="https://github.com/yama-yeah" style={{ color: 'white' }}>GitHub </Link> / <Link target="_blank" to="https://pub.dev/publishers/hiyoko.ga/packages" style={{ color: 'white' }}>pub.dev</Link> / <Link to="https://atcoder.jp/users/unkonown" style={{ color: 'white' }}>AtCoder</Link> / <Link target="_blank" to="https://www.kaggle.com/askeeee" style={{ color: 'white' }}>Kaggle</Link>
+        </h2>
       </TitleStacker>
     </OverFlowWrapper>
     <h1>
-      this site is a sample Portfolio<br/>
+      this site is a sample Portfolio<br />
       plz review :-)
     </h1>
   </Body>);
