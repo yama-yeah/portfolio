@@ -19,7 +19,8 @@ const config: GatsbyConfig = {
     }
   },
   "gatsby-plugin-image",
-  "gatsby-plugin-sharp"
+  "gatsby-plugin-sharp",
+  "gatsby-plugin-loadable-components-ssr",
 ]
 
 };

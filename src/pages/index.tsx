@@ -1,12 +1,14 @@
 import * as React from "react"
 import { HeadFC, Link } from "gatsby"
-import { P5Canvas } from "../components/p5_component"
-import { testSketch } from "../sketches/test_sketch"
 import { css, Global } from "@emotion/react"
 import styled from "@emotion/styled"
-import { StaticImage } from "gatsby-plugin-image"
+import { mainSketch } from "../sketches/main_sketch"
+import loadable from "@loadable/component"
 
-
+const P5c = loadable(() => import('react-p5-wrapper'), {
+  resolveComponent: (components) => components.ReactP5Wrapper,
+  ssr: false,
+})
 const Body = styled.body({
   margin: 0,
   padding: 0,
@@ -24,11 +26,13 @@ color:white;
 display:inline;
 `
 
+
+
 const IndexPage = () => (
   <Body>
     <Global styles={{ body: css`padding:0;margin:0px;` }} />
+    <P5c sketch={mainSketch} />
     <OverFlowWrapper>
-      <P5Canvas sketch={testSketch} />
       <TitleStacker>
         <WhiteText>Antman Portfolio / </WhiteText>
         <h2 style={{ display: 'inline', color: 'white' }}>
@@ -40,8 +44,7 @@ const IndexPage = () => (
       this site is a sample Portfolio<br />
       plz review :-)
     </h1>
-  </Body>);
-
+  </Body>)
 export default IndexPage
 
 export const Head: HeadFC = () => <title>Antman Portfolio</title>

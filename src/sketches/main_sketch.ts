@@ -1,12 +1,12 @@
-import p5 from "p5";
-import { P5Instance } from "react-p5-wrapper";
 
-export function testSketch(p5: P5Instance) {
+
+
+export function mainSketch(p5: any) {
   var params: any[] = [];
   const n = 8;
   var a = 0;
   p5.setup = () => {
-    p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
     for (let index = 0; index < n; index++) {
       params = params.concat([[p5.random(0, 255), p5.random(0, 255), p5.random(0, 255)]]);
     }
@@ -30,4 +30,3 @@ export function testSketch(p5: P5Instance) {
     }
   };
 }
-
